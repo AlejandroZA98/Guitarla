@@ -1,0 +1,10 @@
+Pasos para iniciar u proyecto con react:
+
+abrir una terminal en la carpeta del proyecto
+1: npm create vite@latest
+2: escribir nombre de proyecto
+3: seleccionar React
+4: seleccionar compilador JS + SWC para trabajar con JS o un compilador de Typescript
+5: escribimos cd guitarla
+6: escribimos npm install 
+7: escribimos npm run dev
