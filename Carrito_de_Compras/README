@@ -7,7 +7,7 @@ abrir una terminal en la carpeta del proyecto
 4: seleccionar compilador JS + SWC para trabajar con JS o un compilador de Typescript
 5: escribimos cd guitarla
 6: escribimos npm install 
-7: escribimos npm run dev
+7: escribimos npm run dev para correr el proyecto
 
 
 Sintaxis de React
@@ -52,3 +52,7 @@ visual estudio y construimos el proyecto con:
 npm run build
 _______________________________________________________________
 Para subir un proyecto usamos netlify
+________________________________________________________________
+Cuando se crea un Hook personalizado es necesario usarlo solo en 
+el componente principal, ya que estos funcionan como instancias 
+que al ser usados en varios componentes se producen conflictos

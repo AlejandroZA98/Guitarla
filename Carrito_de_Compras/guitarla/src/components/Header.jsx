@@ -1,11 +1,5 @@
-import { useMemo } from "react"
 // export default para exportar el componente
-export default function Header({cart,removeFromCart,increseQuantity,decreseQuantity,clearCart}){
-
-    //state derivado
-    const isEmpty=useMemo(()=>cart.length===0,[cart])
-    // reduce
-    const cartTotal=useMemo(()=>cart.reduce((total,item)=>total+(item.quantity*item.price),0),[cart])
+export default function Header({cart,removeFromCart,increseQuantity,decreseQuantity,clearCart,isEmpty,cartTotal}){
     return(
     <header className="py-5 header">
         <div className="container-xl">
