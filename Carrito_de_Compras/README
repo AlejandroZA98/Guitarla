@@ -8,3 +8,47 @@ abrir una terminal en la carpeta del proyecto
 5: escribimos cd guitarla
 6: escribimos npm install 
 7: escribimos npm run dev
+
+
+Sintaxis de React
+________________________________________________________________
+En cada componente se debe retornar un elemento 
+para ello se usan <> </> o <Fragment> </Fragment> 
+en caso contrario devuelve une error
+Ejemplo:
+return(
+        <> 
+                <h1>Hola {name}, {value}</h1>
+                <p>Este es un ejemplo de componente en React</p>
+        </>
+    )
+
+________________________________________________________________
+
+En react, las clases de HTML (class) se remplazan por className 
+para evitar errores de sintaxis con js
+________________________________________________________________
+useEfect se ejecuta siempre que cambia el estado del arreeglo de 
+dependencias
+Si esta vacio solo se ejcuta una vez
+
+useEffect(() => {
+  console.log('Se ejecuta una vez');
+}, []);
+
+Si tiene una variable se ejcuta cada vez que cambie la variable
+useEffect(() => {
+  console.log('El valor cambió:', count);
+}, [count]);
+________________________________________________________________
+
+Los State deben ser inmutables porque react compara el estado anterior
+y actual de un componente para poder realizar cambios en la renderizacion
+________________________________________________________________
+useMemo renderiza la pagina cuando cambia algo en el render
+________________________________________________________________
+Una vez terminado el proyecto abrimos una terminal en el proyecto con
+visual estudio y construimos el proyecto con:
+npm run build
+_______________________________________________________________
+Para subir un proyecto usamos netlify
