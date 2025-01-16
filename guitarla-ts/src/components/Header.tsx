@@ -1,5 +1,23 @@
+import type { CartItem,Guitar} from "../types"
+type HeaderProps={
+    cart: CartItem[],
+    removeFromCart: (id: Guitar['id']) => void,
+    increseQuantity: (id: Guitar['id']) => void,
+    decreseQuantity: (id: Guitar['id']) => void,
+    clearCart: () => void,
+    isEmpty: boolean,
+    cartTotal: number,
+}
+
 // export default para exportar el componente
-export default function Header({cart,removeFromCart,increseQuantity,decreseQuantity,clearCart,isEmpty,cartTotal}){
+export default function Header({cart,
+    removeFromCart,
+    increseQuantity,
+    decreseQuantity,
+    clearCart,
+    isEmpty,
+    cartTotal}:HeaderProps){
+        
     return(
     <header className="py-5 header">
         <div className="container-xl">

@@ -1,7 +1,6 @@
 import Header from "./components/Header" // importar archivo header
 import Guitar from "./components/guitar"
 import { useCart } from "./hooks/useCart"
-import { useState } from "react"
 
 function App() {
   const {

@@ -13,4 +13,3 @@ export type Guitar={
 export type CartItem=Guitar&{
     quantity: number  // Agregando nueva propiedad quantity
 }
-export type GuitarID=Guitar['id']// toma solo el id de Guitar
