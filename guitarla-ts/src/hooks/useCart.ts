@@ -1,32 +1,29 @@
 import { useState,useEffect,useMemo } from "react"
 import { db } from "../data/db"
+import type { CartItem,Guitar } from "../types"
 
 export const useCart =()=>{
 
-  
 console.log("desde useCart")
-const initialCart= ()=>{
+const initialCart= ():CartItem[]=>{
     const localStorageCart=localStorage.getItem('cart')
     return localStorageCart? JSON.parse(localStorageCart): []
   }
-  
   // fuera del return se pueden usar expresiones y statemens
-  const [data,setData]=useState([])
+  const [data]=useState(db)
   const [cart,setCart] = useState(initialCart)
   const MAX_ITEMS =5
   const MIN_ITEMS=1
   
   //console.log(data)
-  useEffect(()=>{
-    setData(db)
-  },[])
-
+ 
+  
   useEffect(()=>
     localStorage.setItem('cart',JSON.stringify(cart))
   ,[cart])
 
 
-  function addToCart(item){
+  function addToCart(item:Guitar){ // recibe un item tipo guitar
     const itemExist=cart.findIndex((guitar)=> guitar.id===item.id)
     console.log(itemExist)
 
@@ -38,17 +35,17 @@ const initialCart= ()=>{
       setCart(updateCart)
     }else{
       console.log("agregando",item)
-      item.quantity=1
-      setCart([...cart,item])
+      const newItem:CartItem={...item,quantity:1} // crea un objeto cartitem y le agrega la cantidad
+      setCart([...cart,newItem])// le asigna la cantidad a cart
     }
   }
 
-  function removeFromCart(id){
+  function removeFromCart(id:number){
     console.log("Removiendo",id)
     setCart(cart=> cart.filter(guitar=>guitar.id!==id))
   }
     
-  function increseQuantity(id){
+  function increseQuantity(id:Guitar['id']){ // solo toma el tipo de id de guitarra
     console.log("incrementar",id)
     const updatedCart=cart.map(item=> {
       if(item.id===id && item.quantity<MAX_ITEMS){
@@ -61,7 +58,7 @@ const initialCart= ()=>{
     })
     setCart(updatedCart)
   }
-  function decreseQuantity(id){
+  function decreseQuantity(id:Guitar['id']){
     console.log("decrementar",id)
     const updatedCart=cart.map(item=> {
       if(item.id===id && item.quantity>MIN_ITEMS){
